@@ -1,0 +1,1147 @@
+:root {
+    --background-color: #2D1E3F; /* Deep Purple */
+    --primary-text-color: #EAEAEA; /* Light Grayish White */
+    --secondary-text-color: #B0A8B9; /* Soft Gray */
+    --card-background: #8B5FBF; /* Muted Lavender */
+    --button-color: #FFD700; /* Vibrant Yellow */
+    --button-hover: #FF7F50; /* Rich Orange */
+    --highlight-color: #F8E9D0; /* Warm Cream */
+    --shadow: rgba(255,255,255,0.3); /* Light shadow effect */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Sets the font style */
+    background: var(--background-color); /* Applies the background color from variables */
+    color: var(--primary-text-color); /* Sets text color */
+    display: flex; /* Uses flexbox for centering */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Removes default margin */
+}
+
+.container {
+    width: 90%; /* Makes the container responsive */
+    height: 80%; /* Sets a fixed height */
+    background-color: var(--card-background); /* Uses card background color */
+    padding: 20px; /* Adds spacing inside */
+    border-radius: 0.6rem; /* Rounds the corners */
+    box-shadow: 0 4px 10px var(--shadow); /* Adds a soft shadow */
+    text-align: center; /* Centers the text */
+    overflow: auto; /* Enables scrolling if content overflows */
+}
+
+/* Custom Scrollbar */
+.container::-webkit-scrollbar {
+    width: 12px; /* Sets the scrollbar width */
+}
+
+.container::-webkit-scrollbar-track {
+    background: var(--card-background); /* Matches the container background */
+    border-radius: 10px; /* Rounds the track edges */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: var(--button-color); /* Uses the button color */
+    border-radius: 10px; /* Rounds the scrollbar thumb */
+    border: 2px solid var(--card-background); /* Adds a border to match container */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover); /* Changes color on hover */
+}
+
+/* Hero Section */
+.hero {
+    position: relative; /* Allows absolute positioning of child elements */
+    padding: 4rem 2rem; /* Adds internal spacing */
+    border-radius: 0.6rem; /* Rounds the corners */
+    color: var(--primary-text-color); /* Sets text color */
+    text-align: center; /* Centers the text */
+    height: 73%; /* Sets section height */
+    overflow: hidden; /* Prevents overflow */
+}
+
+/* Hero Background Image */
+.hero::before {
+    content: ''; /* Creates a pseudo-element */
+    position: absolute; /* Covers the entire hero section */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero-food.webp'); /* Sets the hero background image */
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    opacity: 0.6; /* Adds transparency */
+    z-index: 1; /* Places it behind the text */
+}
+/* Changing Hero's Image*/
+.favorite::before{
+    background-image: url(favoritesMain.webp);
+}
+.nutrition::before{
+    background-image: url(nutritionMain.webp);
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative; /* Ensures content appears above the background */
+    z-index: 2; /* Places it above the background image */
+}
+
+/* Hero Underlay*/
+.hero-underlay{
+    padding: 0.1rem 0rem;
+    margin: 1rem;
+    border-radius: 0.6rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Hero Title */
+.hero h1 {
+    font-size: 4rem; /* Makes the title large */
+    color: var(--highlight-color); /* Uses highlight color */
+    margin-bottom: 1rem; /* Adds spacing below */
+    font-family: "Dancing Script", serif; /* Applies a fancy font */
+    font-weight: 900; /* Makes the text bold */
+}
+
+/* Search Form */
+.search-form {
+    display: flex; /* Aligns elements in a row */
+    justify-content: center; /* Centers the form elements */
+    gap: 0.5rem; /* Adds spacing between elements */
+    margin-bottom: 2rem; /* Adds spacing below */
+}
+
+/* Search Input */
+.search-form input, .search-input{
+    width: 70%; /* Sets input width */
+    padding: 0.8rem; /* Adds internal spacing */
+    border: 2px solid var(--button-color); /* Adds a border */
+    border-radius: 0.5rem; /* Rounds the edges */
+    background: var(--card-background); /* Matches the card background */
+    color: var(--primary-text-color); /* Sets text color */
+    font-size: 1rem; /* Adjusts font size */
+}
+/* Placeholder*/
+.search-form input::placeholder{
+    color: var(--primary-text-color);
+}
+/* Search Button */
+.search-form button {
+    padding: 0.8rem 1.2rem; /* Sets button size */
+    border: none; /* Removes border */
+    border-radius: 0.5rem; /* Rounds the edges */
+    background: var(--button-color); /* Uses button color */
+    color: var(--background-color); /* Sets text color */
+    font-size: 1rem; /* Adjusts font size */
+    font-weight: bold; /* Makes text bold */
+    cursor: pointer; /* Shows a pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.search-form button:hover {
+    background-color: var(--button-hover); /* Changes background on hover */
+}
+/* Call-to-Action Buttons Container */
+.cta-buttons {
+    display: flex; /* Aligns buttons in a row */
+    gap: 1rem; /* Adds space between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Aligns buttons vertically */
+}
+  
+/* Call-to-Action Button Styling */
+.cta-button {
+    padding: 0.8rem 1.5rem; /* Adds padding inside the button */
+    background-color: var(--button-color); /* Sets button background color */
+    color: var(--background-color); /* Sets button text color */
+    border: none; /* Removes default border */
+    border-radius: 0.5rem; /* Rounds button corners */
+    display: inline; /* Keeps button inline */
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem; /* Sets font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Call-to-Action Button Hover Effect */
+.cta-button:hover {
+    background: var(--button-hover); /* Changes background on hover */
+    transform: scale(1.1); /* Slightly enlarges button on hover */
+}
+
+/* Recipe of the Day Section */
+.recipe-of-the-day {
+    position: relative; /* Needed for pseudo-elements */
+    display: flex; /* Enables flexible positioning */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    overflow: hidden; /* Prevents content from spilling */
+    border-radius: 0.6rem; /* Rounds the section's corners */
+    width: 100%; /* Full width */
+    max-width: 800px; /* Limits width */
+    height: auto; /* Adapts height based on content */
+    margin: 40px auto; /* Centers section with margin */
+    padding: 20px; /* Adds internal spacing */
+    background-color: var(--card-background); /* Sets background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+}
+
+/* Animated Gradient Border - First Layer */
+.recipe-of-the-day::before {
+    content: "";
+    position: absolute;
+    width: 180%; /* Expands beyond the section */
+    height: 180%; /* Expands beyond the section */
+    background-image: conic-gradient(
+      transparent, transparent, transparent, transparent, var(--button-color) 
+    ); /* Creates animated border effect */
+    animation: rotate 6s linear infinite; /* Rotates continuously */
+    border-radius: 50%; /* Rounds the border */
+    z-index: 1; /* Places it below content */
+}
+
+/* Animated Gradient Border - Second Layer */
+.recipe-of-the-day::after {
+    content: "";
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    background-image: conic-gradient(
+      transparent, transparent, transparent, transparent, var(--button-hover) 
+    ); /* Second layer with offset */
+    animation: rotate 6s linear infinite;
+    animation-delay: -3s; /* Delays animation for a layered effect */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Recipe Content Box */
+.recipe-of-the-day .recipe-content {
+    position: relative; /* Ensures it stays above the animated border */
+    z-index: 2; /* Places content above animated effects */
+    background-color: var(--card-background); /* Matches card background */
+    border-radius: 0.6rem; /* Rounds edges */
+    padding: 20px; /* Adds spacing inside */
+    text-align: center; /* Centers text */
+    width: 100%; /* Full width */
+}
+
+/* Recipe Title Styling */
+.recipe-content h2, h2 {
+    font-size: 2.8rem; /* Large title font */
+    color: var(--highlight-color); /* Highlight color */
+    margin-bottom: 1rem; /* Adds spacing below */
+    font-family: "Dancing Script", serif; /* Stylish font */
+    font-weight: 700; /* Bold font */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Adds text shadow */
+}
+
+/* Loading Spinner for Recipe Section */
+.loading-spinner {
+    border: 4px solid var(--button-color); /* Spinner border */
+    border-top: 4px solid transparent; /* Creates a spinning effect */
+    border-radius: 50%; /* Makes it circular */
+    width: 50px; /* Sets size */
+    height: 50px;
+    animation: spin 1s linear infinite; /* Rotates continuously */
+    margin: 20px auto; /* Centers the spinner */
+    display: block;
+}
+
+/* Recipe Details - Initially Hidden */
+#recipe-details {
+    display: none; /* Hidden until triggered */
+    animation: fadeIn 0.5s ease-in-out forwards; /* Fades in when displayed */
+}
+
+/* Recipe Details Flex Layout */
+.daily-recipe-details {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Aligns items in a column */
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+}
+
+/* Recipe Card Styling */
+.daily-recipe-card {
+    text-align: center; /* Centers text */
+    max-width: 100%; /* Ensures full width */
+}
+
+/* Recipe Image */
+.daily-recipe-card img {
+    width: 50%; /* Limits image size */
+    border-radius: 0.6rem; /* Rounds edges */
+    margin-bottom: 15px; /* Adds spacing below */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds depth */
+    float: left; /* Aligns image to the left */
+    top: 10px; /* Fixes it slightly below the top */
+}
+
+/* Recipe Title */
+.daily-recipe-card h3 {
+    font-size: 1.8rem; /* Medium title font */
+    color: var(--highlight-color); /* Uses highlight color */
+    margin-bottom: 10px; /* Adds spacing */
+}
+
+/* Recipe Description */
+.daily-recipe-card p {
+    font-size: 1rem; /* Standard text size */
+    color: var(--primary-text-color); /* Uses primary text color */
+    margin-bottom: 5px; /* Adds spacing */
+    line-height: 1.5; /* Improves readability */
+}
+
+/* Recipe Instructions List */
+.daily-recipe-card ol {
+    margin-left: 50%; /* Aligns list to the right */
+    text-align: left; /* Aligns text properly */
+}
+
+/* Call-to-Action Button for Recipe */
+.daily-recipe-card a {
+    display: inline-block; /* Allows it to be clickable */
+    padding: 0.8rem 1.5rem; /* Adds padding */
+    background-color: var(--button-color); /* Matches button color */
+    color: var(--background-color); /* Sets text color */
+    border-radius: 0.5rem; /* Rounds edges */
+    text-decoration: none; /* Removes underline */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Adds animation */
+    font-weight: 600; /* Makes text bold */
+}
+
+/* Hover Effect for Recipe Button */
+.daily-recipe-card a:hover {
+    background-color: var(--button-hover); /* Changes background */
+    transform: scale(1.05); /* Slightly enlarges button */
+}
+
+/* Animation: Rotating Effect */
+@keyframes rotate {
+    0% { transform: rotate(0deg); } /* Starts from 0 degrees */
+    100% { transform: rotate(360deg); } /* Completes full rotation */
+}
+
+/* Animation: Spinner Effect */
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Starts from 0 degrees */
+    100% { transform: rotate(360deg); } /* Rotates infinitely */
+}
+
+/* Animation: Fade In */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); } /* Starts hidden */
+    100% { opacity: 1; transform: translateY(0); } /* Fully visible */
+}
+/* Styles for the main recipe card */
+.recipe-card {
+    background-color: var(--card-background); /* Sets background color */
+    border-radius: 0.6rem; /* Rounds the corners */
+    padding: 15px; /* Adds space inside the card */
+    box-shadow: 0 4px 10px var(--shadow); /* Adds a shadow effect */
+    text-align: center; /* Centers the text */
+    margin-top: 2rem; /* Adds space above the card */
+    display: none; /* Hides the card initially */
+}
+
+/* Styling for the recipe title */
+.recipe-card h2{
+    font-size: 4rem;
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+    font-family: "Dancing Script", serif;
+    font-weight: 700;
+}
+
+/* Container for the search results */
+.results-container {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: flex-start;
+    gap: 1.5rem; /* Adds spacing between elements */
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+}
+
+.results-container p {
+    text-align: center; /* Centers paragraph text */
+}
+
+.results-container .details{
+    display: flex;
+    flex-direction: row; /* Aligns items horizontally */
+    align-items: flex-start;
+    gap: 3rem; /* Adds space between elements */
+}
+
+.results-container img {
+    flex: 1;
+    width: 400px;
+    min-width: 50%; /* Ensures responsive image width */
+    height: 400px;
+    float: left; /* Aligns image to the left */
+    display: inline;
+}
+
+.results-container .details .meal-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    gap: 0.2rem; /* Reduces spacing between text elements */
+}
+
+.results-container .details .meal-details h2{
+    font-size: 3rem;
+    color: var(--highlight-color);
+}
+
+.results-container .details .meal-details p {
+    font-size: 2rem;
+    color: var(--primary-text-color);
+}
+
+.results-container strong {
+    color: var(--secondary-text-color);
+}
+
+.results-container .instructions {
+    color:var(--primary-text-color);
+    font-size: 1.2rem;
+}
+
+.results-container ol {
+    text-align: left; /* Aligns ordered list to the left */
+}
+
+/* Styling for the featured recipes section */
+.featured{
+    margin: 20px auto;
+    border: 3px solid var(--button-color);
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 15px var(--button-color),
+                0px 0px 15px var(--button-hover); /* Adds glowing effect */
+    height: auto;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap if necessary */
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Styling for each featured recipe card */
+.featured-card {
+    border: 1px solid var(--highlight-color);
+    border-radius: 0.6rem;
+    padding: 10px;
+    width: 185px; /* Fixed width */
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.featured-card:hover{
+    transform: scale(1.03); /* Enlarges on hover */
+}
+
+.featured-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.6rem;
+}
+
+.featured-card h3{
+    margin: 10px 0;
+    height: 50px; /* Fixes title height */
+}
+
+/* Overlay for detailed recipe view */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Styling for detailed recipe pop-up */
+.detailed-card {
+    background-color: var(--card-background);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    max-width: 800px;
+    width: 90%;
+    height: 60%;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detailed-card img {
+    width: 50%;
+    object-fit: cover;
+}
+
+.detailed-card .details {
+    padding: 20px;
+    width: 50%;
+    position: relative;
+}
+
+.detailed-card .details h2 {
+    margin-top: 0;
+}
+
+/* Close button for detailed recipe */
+.detailed-card .close-btn {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.detailed-card .close-btn:hover{
+    color: var(--button-hover);
+}
+.favorites-section {
+    position: relative; /* Allows absolute positioning inside */
+    height: 70%; /* Sets section height */
+    background-image: url('favorites-section.webp'); /* Background image for the section */
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the background image */
+    border-radius: 0.6rem; /* Rounds the corners */
+    overflow: hidden; /* Hides overflow content */
+    display: flex; /* Enables flexbox for centering */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    text-align: center; /* Centers text */
+    margin: 40px 0; /* Adds space above and below */
+}
+
+.favorites-overlay{
+    position: absolute; /* Positions overlay over the section */
+    top: 0; left: 0; right:0; bottom: 0; /* Covers the whole section */
+    background-color: rgba(45, 30, 63, 0.6); /* Semi-transparent overlay */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    padding: 2rem; /* Adds padding inside overlay */
+    pointer-events: none; /* Prevents interaction */
+}
+
+.favorites-overlay h2{
+    font-size: 2.5rem; /* Sets title size */
+    color: var(--primary-text-color); /* Uses theme color */
+    margin-bottom: 1rem; /* Adds space below */
+}
+
+.favorites-overlay p{
+    font-size: 1.2rem; /* Sets paragraph size */
+    color: var(--primary-text-color); /* Uses theme color */
+    margin-bottom: 2rem; /* Adds space below */
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem; /* Button padding */
+    background-color: var(--button-color); /* Button background */
+    color: var(--background-color); /* Button text color */
+    border: none; /* Removes border */
+    border-radius: 0.5rem; /* Rounds the corners */
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem; /* Sets font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    pointer-events: auto;  /* Allows interaction */
+}
+
+.cta-button:hover{
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+.like-button{
+    color: var(--button-hover); /* Button hover color */
+    margin-left: 0.2rem; /* Adds spacing */
+}
+
+.like-button:hover{
+    color: var(--background-color); /* Changes color on hover */
+}
+
+.like-button:active{
+    color: var(--button-hover); /* Changes color when clicked */
+}
+
+/* Animated hearts floating in the background */
+.hearts-animation{
+    position: absolute; /* Positioned over section */
+    top: 0; left:0; bottom: 0; right: 0; /* Covers full area */
+    overflow: hidden; /* Prevents overflow */
+}
+
+.heart {
+    position: absolute; /* Allows positioning anywhere */
+    font-size: 2rem; /* Sets heart size */
+    color: var(--button-hover); /* Uses theme color */
+    animation: float 5s infinite ease-in-out; /* Floating animation */
+}
+
+/* Positions individual hearts at different locations and delays */
+.heart:nth-child(1){ top: 10%; left: 10%; animation-delay: 0s; }
+.heart:nth-child(2){ top: 20%; left: 95%; animation-delay: 2s; }
+.heart:nth-child(3){ top: 30%; left: 80%; animation-delay: 4s; }
+.heart:nth-child(4){ top: 40%; left: 20%; animation-delay: 4s; }
+.heart:nth-child(5){ top: 70%; left: 30%; animation-delay: 0s; }
+.heart:nth-child(6){ top: 70%; left: 85%; animation-delay: 2s; }
+.heart:nth-child(7){ top: 60%; left: 5%; animation-delay: 4s; }
+.heart:nth-child(8){ top: 80%; left: 70%; animation-delay: 0s; }
+
+@keyframes float {
+    0% {transform: translateY(0) scale(1); } /* Start position */
+    50% {transform: translateY(-20px) scale(1.2); } /* Mid float effect */
+    100% {transform: translateY(0) scale(1); } /* Returns to start */
+}
+.favorites-section {
+    position: relative; /* Allows absolute positioning inside */
+    height: 70%; /* Sets section height */
+    background-image: url('favorites-section.webp'); /* Background image for the section */
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the background image */
+    border-radius: 0.6rem; /* Rounds the corners */
+    overflow: hidden; /* Hides overflow content */
+    display: flex; /* Enables flexbox for centering */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    text-align: center; /* Centers text */
+    margin: 40px 0; /* Adds space above and below */
+}
+
+.favorites-overlay{
+    position: absolute; /* Positions overlay over the section */
+    top: 0; left: 0; right:0; bottom: 0; /* Covers the whole section */
+    background-color: rgba(45, 30, 63, 0.6); /* Semi-transparent overlay */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    padding: 2rem; /* Adds padding inside overlay */
+    pointer-events: none; /* Prevents interaction */
+}
+
+.favorites-overlay h2{
+    font-size: 2.5rem; /* Sets title size */
+    color: var(--primary-text-color); /* Uses theme color */
+    margin-bottom: 1rem; /* Adds space below */
+}
+
+.favorites-overlay p{
+    font-size: 1.2rem; /* Sets paragraph size */
+    color: var(--primary-text-color); /* Uses theme color */
+    margin-bottom: 2rem; /* Adds space below */
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem; /* Button padding */
+    background-color: var(--button-color); /* Button background */
+    color: var(--background-color); /* Button text color */
+    border: none; /* Removes border */
+    border-radius: 0.5rem; /* Rounds the corners */
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem; /* Sets font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    pointer-events: auto;  /* Allows interaction */
+}
+
+.cta-button:hover{
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+.like-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--button-color);
+
+}
+
+.like-button:hover{
+    color: var(--background-color); /* Changes color on hover */
+}
+
+.like-button:active{
+    color: var(--button-hover); /* Changes color when clicked */
+}
+
+/* Footer Like Section */
+.footer-like-section {
+    background-color: var(--card-background); /* Sets background color */
+    padding: 0rem 1rem; /* Adds horizontal padding */
+    border-radius: 0.6rem; /* Rounds the corners */
+    margin: 2rem 0; /* Adds spacing above and below */
+    margin-bottom: 1rem; /* Adjusts bottom margin */
+    text-align: center; /* Centers text */
+}
+
+/* Social & Newsletter Section */
+.social-newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* Social Media Section */
+.social-links {
+    text-align: center;
+    margin-bottom: 1.3rem;
+}
+
+/* Social Media Title */
+.social-links h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+/* Social Media Icons Container */
+.icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Social Media Links */
+.social-icon {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: var(--button-color);
+    color: var(--background-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effects */
+.social-icon:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.1);
+}
+
+/* Newsletter Section */
+.newsletter {
+    text-align: center;
+    flex: 1;
+    max-width: 400px;
+    margin: 0.5rem 3rem;
+}
+
+/* Newsletter Title */
+.newsletter h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+/* Newsletter Form */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Input Field */
+.newsletter-form input {
+    padding: 0.8rem;
+    border: 2px solid var(--button-color);
+    border-radius: 0.5rem;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Subscribe Button */
+.newsletter-form button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+
+/* Nutrition Card Section */
+.nutrition-container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    justify-content: center; /* Center cards horizontally */
+    padding: 20px; /* Add padding around the container */
+    max-width: 1200px; /* Set maximum width */
+    margin: auto; /* Center container in the viewport */
+}
+
+.nutrition-card {
+    background: var(--card-background); /* Background color for cards */
+    color: var(--primary-text-color); /* Text color for cards */
+    border-radius: 15px; /* Round the corners */
+    box-shadow: 0 6px 12px var(--shadow); /* Add shadow for depth */
+    margin: 15px; /* Space between cards */
+    padding: 25px; /* Padding inside cards */
+    width: 280px; /* Set card width */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition effects */
+    position: relative; /* Positioning context for absolute children */
+    overflow: hidden; /* Hide overflow */
+}
+
+.nutrition-card h2 {
+    font-size: 1.5em; /* Font size for headings */
+}
+
+.nutrition-card p {
+    color: var(--secondary-text-color); /* Text color for paragraphs */
+    margin: 10px 0; /* Space above and below paragraphs */
+}
+
+.nutrition-card:hover {
+    transform: translateY(-8px); /* Lift card on hover */
+    box-shadow: 0 10px 20px var(--shadow); /* Enhance shadow on hover */
+}
+
+.more-info {
+    color: var(--button-color); /* Color for links */
+    cursor: pointer; /* Change cursor to pointer */
+    text-decoration: underline; /* Underline links */
+    font-weight: bold; /* Bold font */
+    transition: color 0.3s ease; /* Smooth color transition */
+    display: block; /* Display as block element */
+    margin-top: 10px; /* Space above link */
+}
+
+.more-info:hover {
+    color: var(--button-hover); /* Change color on hover */
+}
+
+/* Nutrition Quiz Section */
+.nutrition-quiz {
+    background: var(--card-background); /* Background color for quiz */
+    border-radius: 10px; /* Round corners */
+    padding: 30px; /* Padding inside quiz */
+    margin: 40px auto; /* Center with margin */
+    max-width: 600px; /* Set maximum width */
+    text-align: center; /* Center text */
+    box-shadow: 0 6px 12px var(--shadow); /* Add shadow */
+}
+
+.nutrition-quiz h2 {
+    color: var(--highlight-color); /* Color for quiz heading */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.nutrition-quiz p {
+    color: var(--secondary-text-color); /* Text color for quiz description */
+    font-size: 1.1em; /* Font size for quiz description */
+    margin-bottom: 20px; /* Space below description */
+}
+
+#start-quiz,
+.answer-button,
+#next-button {
+    background-color: var(--button-color); /* Background color for buttons */
+    color: var(--background-color); /* Text color for buttons */
+    font-size: 1em; /* Font size for buttons */
+    padding: 12px 20px; /* Padding inside buttons */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Round corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    box-shadow: 0 3px 6px var(--shadow); /* Add shadow */
+}
+
+#start-quiz:hover,
+.answer-button:hover,
+#next-button:hover {
+    background-color: var(--button-hover); /* Change background on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+#question {
+    font-size: 1.3em; /* Font size for the question */
+    margin-bottom: 20px; /* Space below question */
+    color: var(--highlight-color); /* Color for the question */
+}
+
+.answer-button {
+    display: block; /* Display as block element */
+    margin: 10px auto; /* Center and space buttons */
+    width: 80%; /* Set button width */
+}
+
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+/* Progress Bar Style */
+#progress-container {
+    width: 100%; /* Full width of container */
+    background-color: #f3f3f3; /* Light gray background */
+    border-radius: 10px; /* Round corners */
+    height: 20px; /* Height of progress bar */
+    margin: 20px 0; /* Space above and below */
+}
+
+#progress-bar {
+    height: 100%; /* Full height of the container */
+    width: 0; /* Start with 0 width */
+    background-color: var(--highlight-color); /* Color of the progress bar */
+    border-radius: 10px; /* Round corners */
+    transition: width 0.3s ease; /* Smooth transition for width changes */
+}
+.food-diary {
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 6px 12px var(--shadow);
+    text-align: center;
+}
+
+#food-log-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#food-log-form input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid var(--secondary-text-color);
+    border-radius: 5px;
+}
+
+#food-log-form button {
+    background-color: var(--button-color);
+    color: var(--background-color);
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#food-log-form button:hover {
+    background-color: var(--button-hover);
+}
+
+#meal-log {
+    margin-top: 20px;
+}
+
+#meal-list {
+    list-style: none;
+    padding: 0;
+}
+
+#nutritional-summary {
+    margin-top: 20px;
+    font-weight: bold;
+}
+.favorites-page-grid {
+    display: none; /* This will hide the container */
+    margin: 20px auto;
+    border: 3px solid var(--button-color);
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 15px var(--button-color),
+                0px 0px 15px var(--button-hover); /* Adds glowing effect */
+    height: auto;
+    width: auto;
+    max-width: 90%;
+    display: flex;
+    flex-direction: row; /* Ensure items are in rows */
+    flex-wrap: wrap; /* Allows items to wrap if necessary */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 10px;
+    padding: 20px;
+}
+/* Section Container */
+#cook-it-with-me-container {
+    background-color: var(--card-background); /* Muted Lavender background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px var(--shadow); /* Light shadow for depth */
+    padding: 20px; /* Padding inside the container */
+    max-width: 600px; /* Maximum width for the section */
+    margin: 2rem auto; /* Center the section */
+}
+
+/* Section Title */
+#cook-it-with-me-title {
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Space below the title */
+    color: var(--primary-text-color); /* Light Grayish White text color */
+}
+
+/* Dropdown Styles */
+#cook-it-with-me-recipe-select {
+    display: block; /* Make dropdown a block element */
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding for aesthetics */
+    margin: 10px 0; /* Space around the dropdown */
+    border: 2px solid var(--button-color); /* Vibrant Yellow border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Increased font size */
+    background-color: var(--highlight-color); /* Warm Cream background */
+    color: var(--secondary-text-color); /* Soft Gray text color */
+}
+
+/* Progress Bar Container */
+#cook-it-with-me-progress-bar-container {
+    background-color: var(--secondary-text-color); /* Soft Gray background for the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    height: 25px; /* Height of the progress bar container */
+    margin: 20px 0; /* Space around the progress bar */
+}
+
+/* Progress Bar Styles */
+#cook-it-with-me-progress-bar {
+    height: 100%; /* Full height of the container */
+    background-color: var(--button-color); /* Vibrant Yellow background for progress */
+    width: 0%; /* Start with 0% width */
+    transition: width 0.3s; /* Smooth width transition */
+}
+
+/* Steps Container Styles */
+#cook-it-with-me-steps-container {
+    margin: 20px 0; /* Space around the steps container */
+    text-align: center; /* Center align text */
+    font-size: 18px; /* Increased font size for readability */
+    color: var(--secondary-text-color); /* Soft Gray text color */
+}
+
+/* Finish Message Styles */
+#cook-it-with-me-finish-message {
+    text-align: center; /* Center align finish message */
+    font-weight: bold; /* Bold text */
+    color: var(--button-color); /* Vibrant Yellow text for success */
+}
+
+/* Tablet Responsiveness*/
+@media (max-width: 768px){
+    /*adjusting container wdth and height */
+    .container{
+        width: 100%;
+        height: 100%;
+        margin-top: 2rem;
+        border-radius: 0px;
+    }
+    .hero-content{
+        margin-top: 10rem;
+    }
+    .recipe-of-the-day{
+        width: 88%;
+    }
+    .heart:nth-child(4){ top: 27%; left: 35%; animation-delay: 4s;};
+    .heart:nth-child(2){ top: 20%; left: 87%; animation-delay: 2s; };
+    .featured-card{
+        margin: auto;
+    }
+    .detailed-card {
+        height: 34%;
+    }
+    #cook-it-with-me-recipe-select {
+        width: 100%; /* Full width dropdown on mobile */
+    }
+}
+
+/* Phone Responsiveness*/
+@media (max-width: 576px) {
+    .hero-content{
+        margin-top: 1rem;
+    }
+    .cta-buttons{
+        gap: 3px;
+    }
+    .results-container, .results-container .details {
+        flex-direction: column;
+        align-items:center;
+    }
+    .results-container img, .daily-recipe-card img{
+        display: block;
+        max-width: 70%;
+        float: none;
+        margin: auto;
+    }
+    .daily-recipe-card ol {
+        margin: auto;
+    }
+    .featured-card{
+        margin: auto;
+        width: 80%;
+    }
+    .detailed-card {
+        flex-direction: column;
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .detailed-card img {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .detailed-card .details {
+        width: 98%; /* Full width for details */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .detailed-card .close-btn {
+        top: -135%; /* Adjust close button position */
+        right: 10px;
+        font-size: 18px; /* Slightly smaller font size */
+    }
+    /* Positions individual hearts at different locations and delays */
+    .heart:nth-child(1){ top: 10%; left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2){ top: 20%; left: 70%; animation-delay: 2s; }
+    .heart:nth-child(3){ top: 30%; left: 80%; animation-delay: 4s; }
+    .heart:nth-child(4){ top: 20%; left: 30%; animation-delay: 4s; }
+    .heart:nth-child(5){ top: 80%; left: 30%; animation-delay: 0s; }
+    .heart:nth-child(6){ top: 70%; left: 85%; animation-delay: 2s; }
+    .heart:nth-child(7){ top: 65%; left: 5%; animation-delay: 4s; }
+    .heart:nth-child(8){ top: 80%; left: 70%; animation-delay: 0s; }
+    .icons{
+        flex-direction: column;
+    }
+}

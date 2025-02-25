@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mealventure</title>
+
+        <!-- Link to External Stylesheet -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- FontAwesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <!-- Google Fonts for Custom Typography -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Great+Vibes&family=Julius+Sans+One&family=League+Spartan:wght@100..900&family=Pacifico&family=VT323&family=Yellowtail&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main class="container">
+            
+            <!-- Hero Section: Main Introduction -->
+            <section class="hero">
+                <div class="hero-content">
+                  <div class="hero-underlay">
+                    <h1>Discover Delicious Recipes</h1>
+                    <p class="subtitle">Find your next favorite meal with our easy-to-use recipe finder. Search by ingredients, cuisine, or dietary needs.</p>
+                  </div>
+                  
+                  <!-- Search Form for Recipes -->
+                  <form class="search-form" id="search-form">
+                    <input type="text" id="search-input" placeholder="Search for recipes..." aria-label="Search for recipes">
+                    <button type="submit">Search</button>
+                  </form>
+
+                  <!-- Navigation Links -->
+                  <header>
+                    <nav class="cta-buttons">
+                      <a href="index.html" class="cta-button">Home</a>
+                      <a href="favorites.html" class="cta-button">Favorites</a>
+                      <a href="nutrition.html" class="cta-button">Nutrition</a>
+                    </nav>
+                  </header>
+                </div>
+            </section>
+
+            <!-- Recipe Search Results Section -->
+            <section class="recipe-card" id="recipe-card">
+                <h2>Search Results</h2>
+                <div id="results-container" class="results-container">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </section>
+
+            <!-- Recipe of the Day Section -->
+            <section class="recipe-of-the-day">
+                <div class="recipe-content">
+                  <h2>Recipe Of The Day</h2>
+                  <div class="loading-spinner"></div>
+                  <div id="recipe-details">
+                    <!-- The daily recipe details will be loaded here dynamically -->
+                  </div>
+                </div>
+            </section>
+
+            <!-- Featured Section (Placeholder for Special Recipes or Promotions) -->
+            <h2>Featured Recipes</h2>
+            <section class="featured" id="featured">
+                <!-- Content for featured recipes or promotions will go here -->
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section">
+              
+              <!-- Background Overlay with Animation or Image -->
+              <div class="favorites-overlay">
+                
+                <!-- Floating Hearts Animation -->
+                <div class="hearts-animation">
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                  <div class="heart">💛</div>
+                </div>
+
+                <!-- Favorite Recipes Title and Description -->
+                <h2>Your Favorite Recipes</h2>
+                <p>Explore your saved recipes and cook your favorites anytime!</p>
+                
+                <!-- Link to Favorites Page -->
+                <a href="favorites.html" class="cta-button">Go to Favorites</a>
+              </div>
+            </section>
+
+            <!-- Footer Section -->
+            <footer class="footer-like-section">
+              
+              <!-- Social Media & Newsletter Section -->
+              <div class="social-newsletter">
+                  
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <div class="icons">
+                      <a href="https://www.facebook.com" class="social-icon">📘 Facebook</a>
+                      <a href="https://www.instagram.com" class="social-icon">📷 Instagram</a>
+                      <a href="https://www.linkedin.com" class="social-icon">💼 LinkedIn</a>
+                      <a href="https://www.twitter.com" class="social-icon">🐦 Twitter</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Subscription Form -->
+                <div class="newsletter">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+              </div>
+            </footer>
+        </main>
+
+        <!-- Link to External JavaScript File -->
+        <script src="script.js"></script>
+    </body>
+</html>

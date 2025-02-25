@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for mobile devices -->
+    <title>Nutrition</title> <!-- Title of the webpage -->
+
+    <!-- Link to External Stylesheet -->
+    <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file for styling -->
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- Linking FontAwesome for icons -->
+
+    <!-- Google Fonts for Custom Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnect for Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Great+Vibes&family=Julius+Sans+One&family=League+Spartan:wght@100..900&family=Pacifico&family=VT323&family=Yellowtail&display=swap" rel="stylesheet"> <!-- Linking various Google Fonts -->
+</head>
+<body>
+    <main class="container"> <!-- Main container for the content -->
+        
+        <!-- Hero Section: Main Introduction -->
+        <section class="hero nutrition"> <!-- Hero section for the introduction -->
+            <div class="hero-content"> <!-- Container for hero content -->
+                <div class="hero-underlay"> <!-- Underlay for visual effect -->
+                    <h1>Fuel Your Body, Feed Your Mind</h1> <!-- Main heading -->
+                    <p class="subtitle">Explore the Essentials of Nutrition for a Healthier Lifestyle"</p> <!-- Subtitle with description -->
+                </div>
+                
+                <!-- Navigation Links -->
+                <header>
+                    <nav class="cta-buttons"> <!-- Navigation buttons for the site -->
+                        <a href="index.html" class="cta-button">Home</a> <!-- Home button -->
+                        <a href="favorites.html" class="cta-button">Favorites</a> <!-- Favorites button -->
+                        <a href="nutrition.html" class="cta-button">Nutrition</a> <!-- Nutrition button -->
+                    </nav>
+                </header>
+            </div>
+        </section>
+        
+        <!-- Creative Section: Nutrition Quiz -->
+        <section class="nutrition-quiz">
+            <h2>Nutrition Quiz</h2>
+            <p>Test your knowledge about nutrition!</p>
+            <button id="start-quiz">Start Quiz</button>
+    
+            <!-- Progress Bar -->
+            <div id="progress-container" class="hidden">
+                <div id="progress-bar"></div>
+            </div>
+    
+            <div id="quiz-container" class="hidden">
+                <div id="question"></div>
+                <div id="answers"></div>
+                <button id="next-button">Next</button>
+            </div>
+            <div id="quiz-result" class="hidden"></div>
+        </section>
+
+        <!-- Nutrition Cards Section -->
+        <h2>Nutritions</h2>
+        <section class="nutrition-container">
+            <div class="nutrition-card" id="calories">
+                <h2>Calories</h2>
+                <p>Calories provide energy for our daily activities. It's important to balance your intake with your energy expenditure.</p>
+                <a href="https://youtu.be/VEQaH4LruUo?si=2VhS37gG3Fakk-oq" class="more-info">Learn More</a>
+            </div>
+            <div class="nutrition-card" id="proteins">
+                <h2>Proteins</h2>
+                <p>Proteins are essential for building and repairing tissues, making hormones and enzymes, and supporting immune function.</p>
+                <a href="https://youtu.be/zaxCtrtUZ4s?si=CsOZ2jECIL8DwJS-" class="more-info">Learn More</a>
+            </div>
+            <div class="nutrition-card" id="fats">
+                <h2>Fats</h2>
+                <p>Fats are a major source of energy and help absorb certain vitamins. Choose healthy fats like avocados and nuts.</p>
+                <a href="https://youtu.be/RdhZD2EUyRQ?si=IXxv0EatqE0O7O9t" class="more-info">Learn More</a>
+            </div>
+            <div class="nutrition-card" id="carbs">
+                <h2>Carbohydrates</h2>
+                <p>Carbs are the body's main source of energy. Choose whole grains, fruits, and vegetables for healthier options.</p>
+                <a href="https://youtu.be/GB5Xxy8y04A?si=RLjh-I48oVZShXMU" class="more-info">Learn More</a>
+            </div>
+        </section>
+
+        <section class="food-diary">
+            <h2>Interactive Food Diary</h2>
+            <p>Log your meals below to see the nutritional breakdown!</p>
+            <form id="food-log-form">
+                <input type="text" id="meal-name" placeholder="Meal Name" required>
+                <input type="number" id="calories-input" placeholder="Calories" required>
+                <input type="number" id="proteins-input" placeholder="Proteins (g)" required>
+                <input type="number" id="fats-input" placeholder="Fats (g)" required>
+                <input type="number" id="carbs-input" placeholder="Carbohydrates (g)" required>
+                <button type="submit">Add Meal</button>
+            </form>
+            <div id="meal-log">
+                <h3>Your Meals:</h3>
+                <ul id="meal-list"></ul>
+                <div id="nutritional-summary">
+                    <h3>Nutritional Summary:</h3>
+                    <p>Total Calories: <span id="total-calories">0</span></p>
+                    <p>Total Proteins: <span id="total-proteins">0</span> g</p>
+                    <p>Total Fats: <span id="total-fats">0</span> g</p>
+                    <p>Total Carbs: <span id="total-carbs">0</span> g</p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Section -->
+        <footer class="footer-like-section"> <!-- Footer section for additional information -->
+            <!-- Social Media & Newsletter Section -->
+            <div class="social-newsletter"> <!-- Container for social media links and newsletter -->
+                
+                <!-- Social Media Links -->
+                <div class="social-links"> <!-- Container for social media links -->
+                    <h3>Follow Us</h3> <!-- Heading for social media section -->
+                    <div class="icons"> <!-- Icons container -->
+                        <a href="https://www.facebook.com" class="social-icon">📘 Facebook</a> <!-- Facebook link -->
+                        <a href="https://www.instagram.com" class="social-icon">📷 Instagram</a> <!-- Instagram link -->
+                        <a href="https://www.linkedin.com" class="social-icon">💼 LinkedIn</a> <!-- LinkedIn link -->
+                        <a href="https://www.twitter.com" class="social-icon">🐦 Twitter</a> <!-- Twitter link -->
+                    </div>
+                </div>
+
+                <!-- Newsletter Subscription Form -->
+                <div class="newsletter"> <!-- Container for newsletter subscription -->
+                    <h3>Subscribe to Our Newsletter</h3> <!-- Heading for newsletter section -->
+                    <form class="newsletter-form"> <!-- Form for email input -->
+                        <input type="email" placeholder="Enter your email" required> <!-- Email input field -->
+                        <button type="submit">Subscribe</button> <!-- Submit button for the form -->
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Link to External JavaScript File -->
+    <script src="nutrition.js"></script>
+</body>
+</html>
