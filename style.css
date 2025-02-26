@@ -558,10 +558,11 @@ body {
 }
 
 .like-button{
-    color: var(--button-hover); /* Button hover color */
+    color: var(--button-color); /* Button hover color */
     margin-left: 0.2rem; /* Adds spacing */
     transition: transform 0.3s ease; /* Add transition on hover for smoothness */
     margin-top: 0.2rem;
+    background-color: transparent;
 }
 
 .like-button:hover{
@@ -570,7 +571,9 @@ body {
 }
 
 .like-button:active{
-    color: var(--button-hover); /* Changes color when clicked */
+    color: var(--button-color); /* Changes color when clicked */
+    background-color: transparent;
+
 }
 
 /* Animated hearts floating in the background */
