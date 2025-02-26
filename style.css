@@ -557,29 +557,15 @@ body {
     margin-bottom: 2rem; /* Adds space below */
 }
 
-.cta-button {
-    padding: 0.8rem 1.5rem; /* Button padding */
-    background-color: var(--button-color); /* Button background */
-    color: var(--background-color); /* Button text color */
-    border: none; /* Removes border */
-    border-radius: 0.5rem; /* Rounds the corners */
-    text-decoration: none; /* Removes underline */
-    font-size: 1rem; /* Sets font size */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-    pointer-events: auto;  /* Allows interaction */
-}
-
-.cta-button:hover{
-    transform: scale(1.05); /* Slightly enlarges button on hover */
-}
-
 .like-button{
     color: var(--button-hover); /* Button hover color */
     margin-left: 0.2rem; /* Adds spacing */
+    transition: transform 0.3s ease; /* Add transition on hover for smoothness */
 }
 
 .like-button:hover{
     color: var(--background-color); /* Changes color on hover */
+    transform: scale(1.03);  /* Increase size on hover*/
 }
 
 .like-button:active{
@@ -614,77 +600,6 @@ body {
     0% {transform: translateY(0) scale(1); } /* Start position */
     50% {transform: translateY(-20px) scale(1.2); } /* Mid float effect */
     100% {transform: translateY(0) scale(1); } /* Returns to start */
-}
-.favorites-section {
-    position: relative; /* Allows absolute positioning inside */
-    height: 70%; /* Sets section height */
-    background-image: url('favorites-section.webp'); /* Background image for the section */
-    background-size: cover; /* Ensures the image covers the section */
-    background-position: center; /* Centers the background image */
-    border-radius: 0.6rem; /* Rounds the corners */
-    overflow: hidden; /* Hides overflow content */
-    display: flex; /* Enables flexbox for centering */
-    align-items: center; /* Centers content vertically */
-    justify-content: center; /* Centers content horizontally */
-    text-align: center; /* Centers text */
-    margin: 40px 0; /* Adds space above and below */
-}
-
-.favorites-overlay{
-    position: absolute; /* Positions overlay over the section */
-    top: 0; left: 0; right:0; bottom: 0; /* Covers the whole section */
-    background-color: rgba(45, 30, 63, 0.6); /* Semi-transparent overlay */
-    display: flex; /* Enables flexbox */
-    flex-direction: column; /* Stacks elements vertically */
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
-    padding: 2rem; /* Adds padding inside overlay */
-    pointer-events: none; /* Prevents interaction */
-}
-
-.favorites-overlay h2{
-    font-size: 2.5rem; /* Sets title size */
-    color: var(--primary-text-color); /* Uses theme color */
-    margin-bottom: 1rem; /* Adds space below */
-}
-
-.favorites-overlay p{
-    font-size: 1.2rem; /* Sets paragraph size */
-    color: var(--primary-text-color); /* Uses theme color */
-    margin-bottom: 2rem; /* Adds space below */
-}
-
-.cta-button {
-    padding: 0.8rem 1.5rem; /* Button padding */
-    background-color: var(--button-color); /* Button background */
-    color: var(--background-color); /* Button text color */
-    border: none; /* Removes border */
-    border-radius: 0.5rem; /* Rounds the corners */
-    text-decoration: none; /* Removes underline */
-    font-size: 1rem; /* Sets font size */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-    pointer-events: auto;  /* Allows interaction */
-}
-
-.cta-button:hover{
-    transform: scale(1.05); /* Slightly enlarges button on hover */
-}
-
-.like-button{
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--button-color);
-
-}
-
-.like-button:hover{
-    color: var(--background-color); /* Changes color on hover */
-}
-
-.like-button:active{
-    color: var(--button-hover); /* Changes color when clicked */
 }
 
 /* Footer Like Section */
@@ -723,8 +638,8 @@ body {
     color: var(--primary-text-color);
 }
 
-/* Social Media Icons Container */
-.icons {
+/* Social Media Icons Container and Fast Pages Links Container */
+.icons, .fast-links {
     display: flex;
     gap: 15px;
     justify-content: center;
@@ -844,6 +759,8 @@ body {
 
 .more-info {
     color: var(--button-color); /* Color for links */
+    font-family: "Dancing Script", serif; /* Stylish font */
+    font-size: 1.4rem;
     cursor: pointer; /* Change cursor to pointer */
     text-decoration: underline; /* Underline links */
     font-weight: bold; /* Bold font */
@@ -1143,7 +1060,7 @@ body {
     .heart:nth-child(6){ top: 70%; left: 85%; animation-delay: 2s; }
     .heart:nth-child(7){ top: 65%; left: 5%; animation-delay: 4s; }
     .heart:nth-child(8){ top: 80%; left: 70%; animation-delay: 0s; }
-    .icons{
+    .icons, .fast-links{
         flex-direction: column;
     }
 }
