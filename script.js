@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const loader = document.getElementById("loading-spinner");
+
+    // Simulate page load time (optional)
+    setTimeout(() => {
+        loader.classList.add("spinner-hidden"); // Apply fade-out effect
+        setTimeout(() => {
+            loader.style.display = "none"; // Remove loader after fade-out
+        }, 500);
+    }, 1000); // Adjust delay if needed
+});
+
 // Select the correct elements from the DOM
 const searchForm = document.getElementById("search-form"); // Form for search input
 const searchInput = document.getElementById("search-input"); // Input field for search
@@ -117,9 +129,6 @@ function updateLikeButtons() {
 // Display the daily recipe
 function displayRecipe(recipe) {
     const recipeDetails = document.getElementById('recipe-details'); // Get the recipe details container
-    const loadingSpinner = document.querySelector('.loading-spinner'); // Get the loading spinner
-
-    loadingSpinner.style.display = 'none'; // Hide loading spinner
 
     if (!recipe) {
         recipeDetails.innerHTML = `<p>Failed to load recipe. Please try again later.</p>`; // Show error message if recipe is null

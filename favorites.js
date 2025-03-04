@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const loader = document.getElementById("loading-spinner");
+
+    // Simulate page load time (optional)
+    setTimeout(() => {
+        loader.classList.add("spinner-hidden"); // Apply fade-out effect
+        setTimeout(() => {
+            loader.style.display = "none"; // Remove loader after fade-out
+        }, 500);
+    }, 1000); // Adjust delay if needed
+});
+
 // Function to Display Liked Recipes
 function displayLikedRecipes() {
     const likedRecipes = JSON.parse(localStorage.getItem('likedRecipes')) || {}; // Get liked recipes from local storage
