@@ -64,25 +64,36 @@ body {
 }
 
 /* Custom Scrollbar */
-.container::-webkit-scrollbar {
+.container::-webkit-scrollbar, .instructions-container::-webkit-scrollbar {
     width: 12px; /* Sets the scrollbar width */
 }
 
-.container::-webkit-scrollbar-track {
+.container::-webkit-scrollbar-track, .instructions-container::-webkit-scrollbar-track {
     background: var(--card-background); /* Matches the container background */
     border-radius: 10px; /* Rounds the track edges */
 }
 
-.container::-webkit-scrollbar-thumb {
+.container::-webkit-scrollbar-thumb, .instructions-container::-webkit-scrollbar-thumb {
     background: var(--button-color); /* Uses the button color */
     border-radius: 10px; /* Rounds the scrollbar thumb */
     border: 2px solid var(--card-background); /* Adds a border to match container */
 }
 
-.container::-webkit-scrollbar-thumb:hover {
+.container::-webkit-scrollbar-thumb:hover, .instructions-container::-webkit-scrollbar-thumb:hover {
     background: var(--button-hover); /* Changes color on hover */
 }
-
+/* Scrollable Instructions */
+.instructions-container {
+    max-height: 150px; /* Restricts height to force scrolling */
+    overflow-y: auto; /* Enables vertical scrolling when needed */
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    display: block; /* Ensures it behaves as a block element */
+    width: 90%; /* Ensures it doesn’t shrink unexpectedly */
+}
 /* Hero Section */
 .hero {
     position: relative; /* Allows absolute positioning of child elements */
@@ -300,6 +311,7 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds depth */
     float: left; /* Aligns image to the left */
     top: 10px; /* Fixes it slightly below the top */
+    margin-right: 1.5rem;
 }
 
 /* Recipe Title */
@@ -319,7 +331,6 @@ body {
 
 /* Recipe Instructions List */
 .daily-recipe-card ol {
-    margin-left: 50%; /* Aligns list to the right */
     text-align: left; /* Aligns text properly */
 }
 
@@ -504,13 +515,14 @@ body {
 }
 
 .detailed-card .details h2 {
+    font-size: 2rem;
     margin-top: 0;
 }
 
 /* Close button for detailed recipe */
 .detailed-card .close-btn {
     position: absolute;
-    top: -40px;
+    top: 0;
     right: 10px;
     background: none;
     border: none;
@@ -1052,8 +1064,9 @@ body {
         float: none;
         margin: auto;
     }
-    .daily-recipe-card ol {
-        margin: auto;
+    .daily-recipe-card ol{
+        float: left;
+        margin-left: 0; 
     }
     .featured-card{
         margin: auto;
@@ -1072,10 +1085,11 @@ body {
     .detailed-card .details {
         width: 98%; /* Full width for details */
         padding: 10px; /* Adjust padding for smaller screens */
+        text-align: center;
     }
 
     .detailed-card .close-btn {
-        top: -135%; /* Adjust close button position */
+        top: 10px; /* Adjust close button position */
         right: 10px;
         font-size: 18px; /* Slightly smaller font size */
     }

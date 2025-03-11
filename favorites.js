@@ -65,6 +65,19 @@ function createRecipeCard(recipe) {
     return card; // Return the created card
 }
 
+// Display multiple random recipes
+async function displayFeaturedRecipes(numRecipes) {
+    const featuredSection = document.getElementById('featured'); // Get the featured section container
+    featuredSection.innerHTML = ''; // Clear existing content
+
+    const recipes = await getUniqueRecipes(numRecipes); // Fetch unique recipes
+    recipes.forEach(recipe => {
+        const card = createRecipeCard(recipe); // Create a recipe card for each recipe
+        featuredSection.appendChild(card); // Append card to featured section
+    });
+
+    updateLikeButtons(); // Update like buttons
+}
 // Function to show the detailed card
 function showDetailedCard(recipe) {
     const overlay = document.createElement('div'); // Create an overlay for the detailed card
@@ -83,8 +96,10 @@ function showDetailedCard(recipe) {
     const title = document.createElement('h2'); // Create a title element
     title.textContent = recipe.strMeal; // Set title text to meal name
 
-    const instructions = document.createElement('p'); // Create a paragraph for instructions
-    instructions.textContent = recipe.strInstructions.substring(0, 200) + '...'; // Show a portion of instructions
+    // Create a scrollable container for the instructions
+    const instructionsContainer = document.createElement('div');
+    instructionsContainer.className = 'instructions-container'; // Apply our new scrollable class
+    instructionsContainer.innerHTML = `<p>${recipe.strInstructions.replace(/\n/g, "<br>")}</p>`;
 
     // Create button to see the recipe video
     const youtubeButton = document.createElement('button');
@@ -108,10 +123,10 @@ function showDetailedCard(recipe) {
     });
 
     // Append all elements to the details container
-    details.appendChild(title);
-    details.appendChild(instructions);
-    details.appendChild(youtubeButton);
     details.appendChild(closeBtn);
+    details.appendChild(title);
+    details.appendChild(instructionsContainer);
+    details.appendChild(youtubeButton);
 
     // Append image and details to the detailed card
     detailedCard.appendChild(image);

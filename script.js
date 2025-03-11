@@ -126,20 +126,71 @@ function updateLikeButtons() {
     });
 }
 
-// Display the daily recipe
-function displayRecipe(recipe) {
-    const recipeDetails = document.getElementById('recipe-details'); // Get the recipe details container
+let currentRecipe = null; // Store the current recipe globally
 
-    if (!recipe) {
-        recipeDetails.innerHTML = `<p>Failed to load recipe. Please try again later.</p>`; // Show error message if recipe is null
+// Function to display full instructions
+function displayInstructions() {
+    const instructionsElement = document.getElementById('recipe-instructions');
+    const hideBtn = document.getElementById("hide-inst");
+    const showBtn = document.getElementById("inst-btn");
+
+    if (!currentRecipe || !currentRecipe.strInstructions) {
+        instructionsElement.innerHTML = "<p>No instructions available.</p>";
         return;
     }
 
-    // Destructure the recipe details
+    // Convert full instructions into a list format
+    const fullInstructions = currentRecipe.strInstructions.split(".")
+        .filter(step => step.trim())
+        .map(step => `<li>${step.trim()}.</li>`)
+        .join("");
+
+    // Replace with the full instructions
+    instructionsElement.innerHTML = `<ol>${fullInstructions}</ol>`;
+
+    // Show "See Less" button, hide "See More" button
+    hideBtn.style.display = "inline-block";
+    showBtn.style.display = "none";
+}
+
+// Function to hide full instructions and show a preview
+function hideInstructions() {
+    const instructionsElement = document.getElementById('recipe-instructions');
+    const hideBtn = document.getElementById("hide-inst");
+    const showBtn = document.getElementById("inst-btn");
+
+    if (!currentRecipe || !currentRecipe.strInstructions) return;
+
+    // Show a truncated version of the instructions (first 2 steps only)
+    const shortInstructions = currentRecipe.strInstructions.split(".")
+        .filter(step => step.trim())
+        .slice(0, 2)
+        .map(step => `<li>${step.trim()}.</li>`)
+        .join("");
+
+    instructionsElement.innerHTML = `<ol>${shortInstructions}</ol>`;
+
+    // Show "See More" button, hide "See Less" button
+    hideBtn.style.display = "none";
+    showBtn.style.display = "inline-block";
+}
+
+// Function to display the recipe
+function displayRecipe(recipe) {
+    const recipeDetails = document.getElementById('recipe-details');
+
+    if (!recipe) {
+        recipeDetails.innerHTML = `<p>Failed to load recipe. Please try again later.</p>`;
+        return;
+    }
+
+    currentRecipe = recipe; // Store the recipe globally
+
+    // Destructure recipe details
     const { strMeal: title, strMealThumb: image, strCategory: category, strArea: area, strInstructions: instructions, strYoutube: youtube, idMeal } = recipe;
 
-    // Create an instructions list from the recipe instructions
-    const instructionsList = instructions.split(".").filter(step => step.trim()).map(step => `<li>${step.trim()}.</li>`).join("");
+    // Create a preview of the instructions (first 2 steps)
+    const shortInstructions = instructions.split(".").filter(step => step.trim()).slice(0, 2).map(step => `<li>${step.trim()}.</li>`).join("");
 
     // Display the daily recipe details
     recipeDetails.innerHTML = `
@@ -150,19 +201,25 @@ function displayRecipe(recipe) {
             <p>Category: ${category}</p>
             <p>Area: ${area}</p>
         </div>
-        <ol>${instructionsList.substring(0, 280) + '...'}</ol> <!-- Show only a portion of instructions -->
+        <ol id="recipe-instructions">${shortInstructions}</ol>
+        <a type="button" id="inst-btn" style="cursor: pointer;">See More</a>
+        <a type="button" id="hide-inst" style="display: none; cursor: pointer;">See Less</a>
         ${youtube ? `<a href="${youtube}" target="_blank" class="cta-button">Watch Video</a>` : ''}
         <button class="like-button cta-button" data-recipe-id="${idMeal}">
-            ${isLiked(idMeal) ? `<i class="fa-solid fa-heart"></i>` : `<i class="fa-regular fa-heart"></i>`} <!-- Like button -->
+            ${isLiked(idMeal) ? `<i class="fa-solid fa-heart"></i>` : `<i class="fa-regular fa-heart"></i>`}
         </button>
     </div>
     `;
 
-    recipeDetails.style.display = "block"; // Show the recipe details
+    recipeDetails.style.display = "block";
 
     // Add event listener AFTER the button is rendered
     const likeButton = document.querySelector('.like-button');
     likeButton.addEventListener('click', () => toggleLike(recipe)); // Toggle like on button click
+
+    // Add event listeners AFTER the buttons are rendered
+    document.getElementById("inst-btn").addEventListener("click", displayInstructions);
+    document.getElementById("hide-inst").addEventListener("click", hideInstructions);
 }
 
 // Check if the stored recipe is still valid
@@ -262,7 +319,6 @@ async function displayFeaturedRecipes(numRecipes) {
 
     updateLikeButtons(); // Update like buttons
 }
-
 // Function to show the detailed card
 function showDetailedCard(recipe) {
     const overlay = document.createElement('div'); // Create an overlay for the detailed card
@@ -281,8 +337,10 @@ function showDetailedCard(recipe) {
     const title = document.createElement('h2'); // Create a title element
     title.textContent = recipe.strMeal; // Set title text to meal name
 
-    const instructions = document.createElement('p'); // Create a paragraph for instructions
-    instructions.textContent = recipe.strInstructions.substring(0, 200) + '...'; // Show a portion of instructions
+    // Create a scrollable container for the instructions
+    const instructionsContainer = document.createElement('div');
+    instructionsContainer.className = 'instructions-container'; // Apply our new scrollable class
+    instructionsContainer.innerHTML = `<p>${recipe.strInstructions.replace(/\n/g, "<br>")}</p>`;
 
     // Create button to see the recipe video
     const youtubeButton = document.createElement('button');
@@ -306,10 +364,10 @@ function showDetailedCard(recipe) {
     });
 
     // Append all elements to the details container
-    details.appendChild(title);
-    details.appendChild(instructions);
-    details.appendChild(youtubeButton);
     details.appendChild(closeBtn);
+    details.appendChild(title);
+    details.appendChild(instructionsContainer);
+    details.appendChild(youtubeButton);
 
     // Append image and details to the detailed card
     detailedCard.appendChild(image);
